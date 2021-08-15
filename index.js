@@ -38,6 +38,10 @@ const get = (data, keys, splice = false) => {
     return get(data[key], keys, splice);
 };
 
+const has = (data, keys) => {
+    return (get(data, keys) || false) !== false;
+};
+
 const set = (data, keys, value) => {
     keys = split(keys);
 
@@ -67,4 +71,4 @@ const set = (data, keys, value) => {
 };
 
 
-export default { get, set };
+export default { get, has, set };
