@@ -1,7 +1,19 @@
 {
     "author": "ICJR",
-    "description": "Dot Notation Utility",
+    "description": "Dot notation path utility",
+    "devDependencies": {
+        "glob": "^7.1.7",
+        "ts-loader": "^9.2.6",
+        "tsconfig-paths-webpack-plugin": "^3.5.1",
+        "typescript": "^4.4.3",
+        "webpack-cli": "^4.5.0"
+    },
+    "main": "./dist/index.js",
     "name": "dot",
     "private": false,
-    "version": "0.0.1"
+    "scripts": {
+        "build": "webpack --config webpack.typescript.config.js --env=filename=index --env=input=%INIT_CWD%/src --env=output=%INIT_CWD%/dist --env=production=true"
+    },
+    "types": "./dist/index.d.ts",
+    "version": "0.0.2"
 }

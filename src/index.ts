@@ -1,26 +1,26 @@
-function split(keys) {
+function parse(keys: any): any[] {
     if (typeof keys === 'number') {
         keys = `${keys}`;
     }
 
-    if (typeof keys === 'string' || keys instanceof String) {
-        keys = keys.includes('.') ? keys.split('.').map((k) => k.trim()).filter(k => k) : [keys];
+    if ((typeof keys === 'string' || keys instanceof String) && keys.includes('.')) {
+        keys = keys.split('.').map((k) => k.trim()).filter(k => k);
     }
 
-    return keys;
+    return Array.isArray(keys) ? keys : [keys];
 }
 
 
-const get = (data, keys, splice = false) => {
-    let value = undefined;
+const get = (data: { [key: number | string]: any }, keys: any, splice: boolean = false): any => {
+    let value: any = undefined;
 
-    keys = split(keys);
+    keys = parse(keys);
 
     if (!keys) {
         return value;
     }
 
-    let key = keys.shift();
+    let key: number | string = keys.shift();
 
     if (keys.length === 0) {
         value = data[key] || value;
@@ -38,12 +38,12 @@ const get = (data, keys, splice = false) => {
     return get(data[key], keys, splice);
 };
 
-const has = (data, keys) => {
+const has = (data: { [key: number | string]: any }, keys: any): boolean => {
     return (get(data, keys) || false) !== false;
 };
 
-const set = (data, keys, value) => {
-    keys = split(keys);
+const set = (data: { [key: number | string]: any }, keys: any, value: any): void => {
+    keys = parse(keys);
 
     let key = keys.shift();
 
