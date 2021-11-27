@@ -3,12 +3,15 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 
 const config = ({ filename, input, output, production }) => {
-    let optimization = {};
+    let optimization = {
+        usedExports: false
+    };
 
     if (production === 'false') {
         optimization = {
             mangleWasmImports: false,
-            minimize: false
+            minimize: false,
+            usedExports: false
         };
     }
 

@@ -12,7 +12,9 @@
     "name": "dot",
     "private": false,
     "scripts": {
-        "build": "webpack --config webpack.typescript.config.js --env=filename=index --env=input=%INIT_CWD%/src --env=output=%INIT_CWD%/dist --env=production=true"
+        "build": "webpack --config webpack.typescript.config.js --env=filename=index --env=input=%INIT_CWD%/src --env=output=%INIT_CWD%/dist --env=production=true",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run build"
     },
     "types": "./dist/index.d.ts",
     "version": "0.0.2"
