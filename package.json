@@ -9,7 +9,7 @@
         "webpack-cli": "^4.5.0"
     },
     "main": "./dist/index.js",
-    "name": "dot",
+    "name": "@esportsplus/dot",
     "private": false,
     "scripts": {
         "build": "webpack --config webpack.typescript.config.js --env=filename=index --env=input=%INIT_CWD%/src --env=output=%INIT_CWD%/dist --env=production=true",
@@ -17,5 +17,5 @@
         "prepublishOnly": "npm run build"
     },
     "types": "./dist/index.d.ts",
-    "version": "0.0.2"
+    "version": "0.0.1"
 }
