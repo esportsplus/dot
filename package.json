@@ -2,21 +2,19 @@
     "author": "ICJR",
     "description": "Dot notation path utility",
     "devDependencies": {
-        "glob": "^7.1.7",
         "ts-loader": "^9.2.6",
         "tsconfig-paths-webpack-plugin": "^3.5.1",
-        "typescript": "^4.4.3",
-        "webpack": "^5.64.4",
-        "webpack-cli": "^4.5.0"
+        "typescript": "^4.4.3"
     },
-    "main": "./dist/index.js",
+    "main": "./build/index.js",
     "name": "@esportsplus/dot",
     "private": false,
     "scripts": {
-        "build": "webpack --config webpack.typescript.config.js --env=filename=index --env=input=%INIT_CWD%/src --env=output=%INIT_CWD%/dist --env=production=true",
+        "build": "tsc",
+        "-": "-",
         "prepare": "npm run build",
         "prepublishOnly": "npm run build"
     },
-    "types": "./dist/index.d.ts",
+    "types": "./build/index.d.ts",
     "version": "0.0.2"
 }
